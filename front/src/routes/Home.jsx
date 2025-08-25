@@ -28,7 +28,7 @@ const Home = () => {
 
   return (
     <section>
-      <h1 className="text-3xl bg-red-500 ">Login</h1>
+      <h1 className="text-3xl bg-primary ">Login</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label>Username:</label>
