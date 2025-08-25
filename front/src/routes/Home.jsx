@@ -16,7 +16,7 @@ const Home = () => {
       localStorage.setItem("role", role);
 
       // Redireciona para a página de métricas
-      navigate("/metrics");
+      navigate("/dashboard");
     } catch (error) {
       if (error.response && error.response.status === 401) {
         alert("Usuário ou senha incorretos");
