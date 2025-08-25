@@ -10,7 +10,7 @@ const Dashboard = () => {
   const [endDate, setEndDate] = useState("");
   const [sortBy, setSortBy] = useState("");
   const [order, setOrder] = useState("asc");
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(20);
   const [offset, setOffset] = useState(0);
 
   // Pega o 'role' do localStorage para enviar à API
@@ -53,8 +53,16 @@ const Dashboard = () => {
 
 
   useEffect(() => {
+    // Reseta o offset para a primeira página sempre que os filtros mudarem
+    setOffset(0); 
+  }, [startDate, endDate, sortBy, order, limit]);
+
+  useEffect(() => {
     fetchMetrics();
-  }, [startDate, endDate, sortBy, order, offset, limit]);
+  }, [offset, limit, order, sortBy, startDate, endDate]);
+
+  const currentPage = Math.floor(offset / limit) + 1;
+  const totalPages = Math.ceil(pagination.total / limit);
 
   return (
     <section className="min-w-full min-h-screen p-4 flex flex-col gap-10">
@@ -140,24 +148,44 @@ const Dashboard = () => {
 
           {/* Controles de Paginação */}
           <div className="flex justify-between items-center mt-4">
-            <button
-              onClick={() => setOffset((prev) => Math.max(prev - limit, 0))}
-              disabled={offset === 0 || loading}
-              className="bg-gray-500 text-white px-4 py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              Anterior
-            </button>
+            <div className="flex items-center gap-2">
+              <label htmlFor="limit-select">Itens por página:</label>
+              <select 
+                id="limit-select"
+                value={limit} 
+                onChange={(e) => setLimit(Number(e.target.value))}
+                className="border h-8 p-1 rounded"
+              >
+                <option value={10}>10</option>
+                <option value={25}>25</option>
+                <option value={50}>50</option>
+              </select>
+            </div>
             
-            <span>Exibindo {metrics.length} de {pagination.total} resultados</span>
+            <div className="flex items-center gap-4">
+              <button
+                onClick={() => setOffset((prev) => Math.max(prev - limit, 0))}
+                disabled={offset === 0 || loading}
+                className="bg-gray-500 text-white px-4 py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Anterior
+              </button>
+              
+              {/* 3. Mostra a página atual e o total de páginas */}
+              {pagination.total > 0 && (
+                <span>
+                  Página {currentPage} de {totalPages}
+                </span>
+              )}
 
-            <button
-              onClick={() => setOffset((prev) => prev + limit)}
-              // MELHORIA: O botão "Próxima" agora é desabilitado com base na resposta da API
-              disabled={!pagination.has_more || loading}
-              className="bg-primary text-white px-4 py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              Próxima
-            </button>
+              <button
+                onClick={() => setOffset((prev) => prev + limit)}
+                disabled={!pagination.has_more || loading}
+                className="bg-primary text-white px-4 py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Próxima
+              </button>
+            </div>
           </div>
         </>
       )}
