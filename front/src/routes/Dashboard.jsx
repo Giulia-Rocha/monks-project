@@ -45,45 +45,45 @@ const Dashboard = () => {
   
 
   return (
-      <section className="p-4">
-        <h1 className="text-3xl font-bold mb-4">Dashboard</h1>
+      <section className="min-w-full min-h-screen p-4 flex flex-col gap-10">
+        <h1 className="text-3xl font-regular text-shadow-lg/30 font-montserrat mb-4 self-center ">Dashboard de Métricas</h1>
 
         {/* Filtros */}
-        <div className="flex gap-4 mb-4">
-          <div>
+        <div className="flex justify-around mb-4">
+          <div className='flex gap-2 items-center'>
             <label>Início:</label>
             <input 
               type="date" 
               value={startDate} 
               onChange={(e) => setStartDate(e.target.value)}
-              className="border p-1"
+              className="border h-6 p-1"
             />
           </div>
-          <div>
+          <div className='flex gap-2 items-center'>
             <label>Fim:</label>
             <input 
               type="date" 
               value={endDate} 
               onChange={(e) => setEndDate(e.target.value)}
-              className="border p-1"
+              className="border h-6 p-1"
             />
           </div>
-          <div>
+          <div className='flex gap-2 items-center'>
             <label>Ordenar por:</label>
             <input 
               type="text" 
-              placeholder="coluna" 
+              placeholder="nome da coluna" 
               value={sortBy} 
               onChange={(e) => setSortBy(e.target.value)}
-              className="border p-1"
+              className="border h-6 text-center p-1"
             />
           </div>
-          <div>
+          <div className='flex gap-2 items-center'>
             <label>Ordem:</label>
             <select 
               value={order} 
               onChange={(e) => setOrder(e.target.value)}
-              className="border p-1"
+              className="border h-8 p-1"
             >
               <option value="asc">Crescente</option>
               <option value="desc">Decrescente</option>

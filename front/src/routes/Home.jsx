@@ -27,7 +27,7 @@ const Home = () => {
   };
 
   return (
-    <section className="w-full min-h-screen flex justify-center items-center">
+    <section className="w-full h-screen flex justify-center items-center">
       <div className=" bg-medium-gray w-1/3 h-96 p-3 rounded-xl flex flex-col justify-evenly items-center  ">
         <h1 className="text-2xl font-regular ">Login</h1>
         <form onSubmit={handleSubmit(onSubmit)} className=" w-8/10 h-1/3 flex flex-col justify-between items-center">
