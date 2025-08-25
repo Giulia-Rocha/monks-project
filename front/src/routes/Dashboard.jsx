@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const Dashboard = () => {
-  // O estado 'metrics' agora armazena apenas o array de dados
   const [metrics, setMetrics] = useState([]);
   const [pagination, setPagination] = useState({ has_more: false, total: 0 });
   const [loading, setLoading] = useState(true);
@@ -13,7 +12,7 @@ const Dashboard = () => {
   const [limit, setLimit] = useState(20);
   const [offset, setOffset] = useState(0);
 
-  // Pega o 'role' do localStorage para enviar à API
+
   const role = localStorage.getItem("role") || "user";
 
   const fetchMetrics = async () => {
@@ -170,8 +169,6 @@ const Dashboard = () => {
               >
                 Anterior
               </button>
-              
-              {/* 3. Mostra a página atual e o total de páginas */}
               {pagination.total > 0 && (
                 <span>
                   Página {currentPage} de {totalPages}
