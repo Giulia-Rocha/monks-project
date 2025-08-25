@@ -3,12 +3,12 @@ import "../index.css"
 
 const Nav = () => {
   return (
-    <section>
+    <section className="w-full min-h-16 flex justify-around items-center bg-primary text-secondary ">
       <div>
         <img src="gi" alt="logo Monks"/>
       </div>
-      <div >
-        <Link to="/home" className="bg-color-primary">Sair</Link>
+      <div className=" ">
+        <Link to="/" className="self-center">Sair</Link>
       </div>
       
     </section>

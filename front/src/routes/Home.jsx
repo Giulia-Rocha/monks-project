@@ -27,19 +27,22 @@ const Home = () => {
   };
 
   return (
-    <section>
-      <h1 className="text-3xl bg-primary ">Login</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label>Username:</label>
-          <input {...register("username", { required: true })} />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input type="password" {...register("password", { required: true })} />
-        </div>
-        <button type="submit">Entrar</button>
-      </form>
+    <section className="w-full min-h-screen flex justify-center items-center">
+      <div className=" bg-medium-gray w-1/3 h-96 p-3 rounded-xl flex flex-col justify-evenly items-center  ">
+        <h1 className="text-2xl font-regular ">Login</h1>
+        <form onSubmit={handleSubmit(onSubmit)} className=" w-8/10 h-1/3 flex flex-col justify-between items-center">
+          <div className="flex gap-5 ">
+            <label>Usuário:</label>
+            <input className="h-6 bg-secondary border-1 border-black" {...register("username", { required: true })} />
+          </div>
+          <div className="flex gap-7 ">
+            <label>Senha:</label>
+            <input className="h-6 bg-secondary border-1 border-black"type="password" {...register("password", { required: true })} />
+          </div>
+          <button className="bg-secondary w-20 h-8 self-center rounded-xl "type="submit">Entrar</button>
+        </form>
+      </div>
+      
     </section>
   );
 };
