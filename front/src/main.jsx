@@ -6,6 +6,7 @@ import Home from './routes/Home.jsx'
 import Dashboard from './routes/Dashboard.jsx'
 import Error from './routes/Error.jsx'
 import './index.css'
+import ProtectedRoute from './components/ProtectedRoute.jsx'
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,11 @@ const router = createBrowserRouter([
 
     children:[
       {path:'/', element:<Home/>},
-      {path:'/dashboard', element:<Dashboard/>},
+      {path:'/dashboard', element:(
+        <ProtectedRoute>
+          <Dashboard/>
+        </ProtectedRoute>
+      )},
     ]
   }
 ])
