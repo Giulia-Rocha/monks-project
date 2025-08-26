@@ -72,12 +72,12 @@ Antes de começar, certifique-se de que tem as seguintes ferramentas instaladas 
 
 Um gestor de pacotes para o Node, como o **npm ou yarn.**
 
-### 1. Clonar o Repositório
+## 1. Clonar o Repositório
 ```bash
 git clone https://github.com/Giulia-Rocha/monks-project.git
 cd monks_project
 ```
-### 2. Configurar e Rodar o Backend
+## 2. Configurar e Rodar o Backend
 Navegue para a pasta do backend 
 ```bash
 cd apiMonks
@@ -85,34 +85,34 @@ cd apiMonks
 
  e siga os passos:
 
-# 1. Crie e ative um ambiente virtual (recomendado)
+### 1. Crie e ative um ambiente virtual (recomendado)
 ```bash
 python -m venv .venv
 source .venv/bin/activate  # No Windows: .venv\Scripts\activate
 ```
-# 2. Instale as dependências
+### 2. Instale as dependências
 ```bash
 pip install -r requirements.txt
 ```
-# 3. Inicie o servidor da API
+### 3. Inicie o servidor da API
 ```bash
 uvicorn app:app --reload
 ```
 O servidor backend estará a rodar em http://127.0.0.1:8000.
 
-3. Configurar e Rodar o Frontend
+# 3. Configurar e Rodar o Frontend
 Abra um novo terminal, navegue para a pasta do frontend e siga os passos:
 
-# Navegue para a pasta do frontend 
+### Navegue para a pasta do frontend 
 ```bash
 cd front
 ```
 
-# 1. Instale as dependências
+### 1. Instale as dependências
 ```bash
 npm install
 ```
-# 2. Inicie o servidor de desenvolvimento
+### 2. Inicie o servidor de desenvolvimento
 ```bash
 npm run dev
 ```
