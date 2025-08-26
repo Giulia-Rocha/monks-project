@@ -1,25 +1,23 @@
 import pandas as pd
 import uvicorn
-from datetime import datetime
 from typing import Optional
 
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-# --- 1. INICIALIZAÇÃO E MODELOS ---
 
 app = FastAPI(
     title="API de Métricas Simples",
     description="Uma API para consultar métricas com filtros, ordenação e controle de acesso por papel."
 )
 
-# Modelos Pydantic para validação de dados de entrada
+
 class User(BaseModel):
     username: str
     password: str
 
-# --- 2. CARREGAMENTO E PREPARAÇÃO DE DADOS (Executado uma única vez) ---
+
 
 def load_and_prepare_data():
     """Carrega, limpa e prepara os DataFrames na inicialização."""
@@ -41,7 +39,7 @@ def load_and_prepare_data():
 
 USERS_DB_DF, METRICS_DF_CLEAN = load_and_prepare_data()
 
-# --- 3. CAMADA DE SERVIÇO DE MÉTRICAS (Lógica de Negócio) ---
+
 
 class MetricsService:
     def get_filtered_metrics(
@@ -54,7 +52,7 @@ class MetricsService:
         role: str
     ) -> pd.DataFrame:
         """Orquestra a aplicação de filtros, ordenação e regras de acesso."""
-        processed_df = df.copy() # Essencial para não modificar o DataFrame original
+        processed_df = df.copy() 
 
         if start_date:
             processed_df = processed_df[processed_df["date"] >= pd.Timestamp(start_date)]
@@ -74,9 +72,6 @@ class MetricsService:
 
 metrics_service = MetricsService()
 
-# --- 4. ENDPOINTS DA API ---
-
-# Adiciona configuração de CORS para permitir requisições do frontend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
@@ -148,6 +143,6 @@ def get_metrics_endpoint(
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Ocorreu um erro interno: {str(e)}")
 
-# --- Ponto de entrada para executar com `python app.py` ---
+
 if __name__ == "__main__":
     uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True)
