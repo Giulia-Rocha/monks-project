@@ -1,10 +1,11 @@
-Projeto de Dashboard de Métricas
+# Projeto Monks
+
 Este projeto foi desenvolvido como parte de um processo seletivo e consiste numa aplicação full-stack com um backend em Python (FastAPI) e um frontend em React. A aplicação exibe dados de métricas, permitindo que os utilizadores façam login, filtrem e ordenem os dados, com controle de acesso baseado no perfil do usuário.
 
 
 
-✅ Funcionalidades Implementadas
-API Backend:
+## ✅ Funcionalidades Implementadas
+### API Backend:
 
 Servidor web construído com FastAPI.
 
@@ -22,7 +23,7 @@ Controle de acesso para ocultar a coluna cost_micros de usuários comuns.
 
 Paginação dos resultados.
 
-Frontend:
+### Frontend:
 
 Interface reativa construída com React.
 
@@ -36,8 +37,8 @@ Controlos de interface para filtrar por data, ordenar por coluna e navegar entre
 
 Funcionalidade de Logout.
 
-🛠️ Tecnologias Utilizadas
-Backend:
+## 🛠️ Tecnologias Utilizadas
+### Backend:
 
 Python 3.10+
 
@@ -47,7 +48,7 @@ Pandas: Para manipulação e processamento dos dados dos arquivos CSV.
 
 Uvicorn: Servidor ASGI para rodar a aplicação FastAPI.
 
-Frontend:
+### Frontend:
 
 React 18+
 
@@ -59,7 +60,7 @@ Tailwind CSS: Para a estilização da interface.
 
 Vite: Como ferramenta de build e servidor de desenvolvimento.
 
-🚀 Como Rodar o Projeto
+## 🚀 Como Rodar o Projeto
 Siga os passos abaixo para configurar e executar o projeto localmente.
 
 Pré-requisitos
@@ -71,44 +72,57 @@ Python (versão 3.10 ou superior)
 
 Um gestor de pacotes para o Node, como o npm ou yarn.
 
-1. Clonar o Repositório
+### 1. Clonar o Repositório
+```bash
 git clone https://github.com/Giulia-Rocha/monks-project.git
 cd monks_project
+```
+### 2. Configurar e Rodar o Backend
+Navegue para a pasta do backend 
+```bash
+cd apiMonks
+```
 
-2. Configurar e Rodar o Backend
-Navegue para a pasta do backend (se houver uma separada) e siga os passos:
-
-# Navegue para a pasta da API (ex: cd api)
+ e siga os passos:
 
 # 1. Crie e ative um ambiente virtual (recomendado)
+```bash
 python -m venv .venv
 source .venv/bin/activate  # No Windows: .venv\Scripts\activate
-
+```
 # 2. Instale as dependências
+```bash
 pip install -r requirements.txt
-
+```
 # 3. Inicie o servidor da API
+```bash
 uvicorn app:app --reload
-
+```
 O servidor backend estará a rodar em http://127.0.0.1:8000.
 
 3. Configurar e Rodar o Frontend
 Abra um novo terminal, navegue para a pasta do frontend e siga os passos:
 
-# Navegue para a pasta do frontend (ex: cd client)
+# Navegue para a pasta do frontend 
+```bash
+cd front
+```
 
 # 1. Instale as dependências
+```bash
 npm install
-
+```
 # 2. Inicie o servidor de desenvolvimento
+```bash
 npm run dev
+```
 
 A aplicação frontend estará acessível em http://localhost:5173.
 
-🔑 Credenciais para Teste
+## 🔑 Credenciais para Teste
 Como a aplicação não possui um sistema de registo, utilize as seguintes credenciais (presentes no arquivo users.csv) para aceder:
 
-Usuário Comum:
+### Usuário Comum:
 
 Username: user2
 
@@ -116,7 +130,7 @@ Password: 908ijofff
 
 (Este perfil não consegue ver a coluna cost_micros)
 
-Usuário Administrador:
+### Usuário Administrador:
 
 Username: user1
 
