@@ -7,70 +7,70 @@ Este projeto foi desenvolvido como parte de um processo seletivo e consiste numa
 ## ✅ Funcionalidades Implementadas
 ### API Backend:
 
-Servidor web construído com FastAPI.
+- Servidor web construído com FastAPI.
 
-Leitura e processamento de dados a partir de arquivos .csv.
+- Leitura e processamento de dados a partir de arquivos .csv.
 
-Endpoint de login simples (/login) para validar credenciais de usuários.
+- Endpoint de login simples **(/login)** para validar credenciais de usuários.
 
-Endpoint de dados (/metrics) com as seguintes capacidades:
+- Endpoint de dados **(/metrics)** com as seguintes capacidades:
 
-Filtragem de dados por intervalo de datas.
+- Filtragem de dados por **intervalo de datas.**
 
-Ordenação de dados por qualquer coluna.
+- Ordenação de dados por qualquer coluna.
 
-Controle de acesso para ocultar a coluna cost_micros de usuários comuns.
+- Controle de acesso para ocultar a coluna cost_micros de usuários comuns.
 
-Paginação dos resultados.
+- Paginação dos resultados.
 
 ### Frontend:
 
-Interface reativa construída com React.
+- Interface reativa construída com React.
 
-Sistema de rotas com proteção para a página do dashboard.
+- Sistema de rotas com proteção para a página do dashboard.
 
-Interface de login para autenticação do utilizador.
+- Interface de login para autenticação do utilizador.
 
-Dashboard com uma tabela para visualização dos dados.
+- Dashboard com uma tabela para visualização dos dados.
 
-Controlos de interface para filtrar por data, ordenar por coluna e navegar entre as páginas.
+- Controlos de interface para filtrar por data, ordenar por coluna e navegar entre as páginas.
 
-Funcionalidade de Logout.
+- Funcionalidade de Logout.
 
 ## 🛠️ Tecnologias Utilizadas
 ### Backend:
 
-Python 3.10+
+- Python 3.10+
 
-FastAPI: Framework web para a construção da API.
+- FastAPI: Framework web para a construção da API.
 
-Pandas: Para manipulação e processamento dos dados dos arquivos CSV.
+- Pandas: Para manipulação e processamento dos dados dos arquivos CSV.
 
-Uvicorn: Servidor ASGI para rodar a aplicação FastAPI.
+- Uvicorn: Servidor ASGI para rodar a aplicação FastAPI.
 
 ### Frontend:
 
-React 18+
+- React v.19+
 
-React Router DOM: Para a gestão de rotas e navegação.
+- React Router DOM: Para a gestão de rotas e navegação.
 
-Axios: Para realizar as chamadas HTTP à API.
+- Axios: Para realizar as chamadas HTTP à API.
 
-Tailwind CSS: Para a estilização da interface.
+- Tailwind CSS: Para a estilização da interface.
 
-Vite: Como ferramenta de build e servidor de desenvolvimento.
+- Vite: Como ferramenta de build e servidor de desenvolvimento.
 
 ## 🚀 Como Rodar o Projeto
 Siga os passos abaixo para configurar e executar o projeto localmente.
 
-Pré-requisitos
+### Pré-requisitos
 Antes de começar, certifique-se de que tem as seguintes ferramentas instaladas na sua máquina:
 
-Node.js (versão 18 ou superior)
+**Node.js (versão 18 ou superior)**
 
-Python (versão 3.10 ou superior)
+**Python (versão 3.10 ou superior)**
 
-Um gestor de pacotes para o Node, como o npm ou yarn.
+Um gestor de pacotes para o Node, como o **npm ou yarn.**
 
 ### 1. Clonar o Repositório
 ```bash
